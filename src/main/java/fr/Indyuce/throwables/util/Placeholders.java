@@ -26,6 +26,6 @@ public class Placeholders {
             str = str.replace("{" + holder + "}", placeholders.getOrDefault(holder, "PHE"));
         }
 
-        return Throwables.plugin.versionWrapper.parseColors(str);
+        return Throwables.plugin.colorParser.parseColors(str);
     }
 }
