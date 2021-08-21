@@ -16,6 +16,7 @@ public class ThrowableSwordStatList extends ItemStatList {
      * Maximum distance of a throwable sword before it
      * comes back like a boomerang
      */
+    @Deprecated
     public static DoubleStat BOOMERANG_MAX_DISTANCE = new DoubleStat("boomerang-max-distance", "BoomerangMaxDistance");
 
     /**

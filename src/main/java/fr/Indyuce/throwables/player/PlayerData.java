@@ -42,6 +42,10 @@ public class PlayerData {
         this.player = player;
     }
 
+    public CooldownMap getCooldowns() {
+        return playerCooldowns;
+    }
+
     /**
      * Checks if a player has an item on cooldown. This supports any cooldown scope.
      *

@@ -6,6 +6,10 @@ import java.util.Map;
 public class CooldownMap {
     private final Map<String, CooldownInfo> map = new HashMap<>();
 
+    public CooldownInfo getInfo(String path) {
+        return map.get(path);
+    }
+
     /**
      * Applies a cooldown
      *
