@@ -11,10 +11,12 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class ThrowablesCommandExecutor implements CommandExecutor {
+public class ThrowablesExecutor implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (!sender.hasPermission("throwables.admin"))
+            return false;
 
         if (args.length == 0) {
 
@@ -24,12 +26,10 @@ public class ThrowablesCommandExecutor implements CommandExecutor {
 
 
         if (args[0].equalsIgnoreCase("reload")) {
-
             Throwables.plugin.reloadConfig();
             Throwables.plugin.throwableManager.loadConfigThrowables();
             sender.sendMessage(ChatColor.YELLOW + "Successfully reloaded Throwables " + Throwables.plugin.getDescription().getVersion());
             sender.sendMessage(ChatColor.YELLOW + "- Loaded " + Throwables.plugin.throwableManager.getThrowables().size() + " item(s)");
-
             return true;
         }
 
@@ -86,7 +86,6 @@ public class ThrowablesCommandExecutor implements CommandExecutor {
             target.getInventory().addItem(generated);
             return true;
         }
-
 
         return true;
     }

@@ -1,11 +1,21 @@
+# Used to notify admins on login
+# when an update is available
+update-notify: true
 
-
-
-
+# Default handlers for vanilla items. They
+# will be chosen if no handler is detected on an item
 default-handlers:
+
   IRON_SWORD:
-    type: basic_axes
-    cooldown: 10
+    type: default_sword
+    cooldown: 4
     damage: 4
+    boomerang: true
+
+
+  IRON_AXE:
+    type: default_axe
+    cooldown: 5
+    damage: 7
 
 
