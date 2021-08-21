@@ -1,0 +1,5 @@
+
+TEST:
+  throwable-type: default_axe
+  material: IRON_AXE
+  name: '&6Throwing Axe'

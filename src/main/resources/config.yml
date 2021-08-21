@@ -1,0 +1,11 @@
+
+
+
+
+default-handlers:
+  IRON_SWORD:
+    type: basic_axes
+    cooldown: 10
+    damage: 4
+
+

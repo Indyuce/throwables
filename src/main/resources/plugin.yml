@@ -1,0 +1,10 @@
+main: fr.Indyuce.throwables.Throwables
+name: Throwables
+version: 1.0
+author: Indyuce
+api-version: 1.13
+softdepend: [MythicMobs]
+commands:
+  throwables:
+    description: Main command.
+permissions: { }
