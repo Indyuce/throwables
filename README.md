@@ -1,6 +1,9 @@
 # throwables
 Spigot plugin implementing throwable weapons
 
+**Get this plugin over Spigot**\
+https://www.spigotmc.org/resources/95551/
+
 **Maven Integration**
 ```
 <repositories>
