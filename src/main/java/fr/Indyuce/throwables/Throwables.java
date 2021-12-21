@@ -1,8 +1,8 @@
 package fr.Indyuce.throwables;
 
 import fr.Indyuce.throwables.api.ThrowablesAPI;
-import fr.Indyuce.throwables.command.ThrowablesExecutor;
 import fr.Indyuce.throwables.command.ThrowablesCompleter;
+import fr.Indyuce.throwables.command.ThrowablesExecutor;
 import fr.Indyuce.throwables.compat.Metrics;
 import fr.Indyuce.throwables.compat.color.ColorParser;
 import fr.Indyuce.throwables.compat.color.HexColorParser;
@@ -13,6 +13,7 @@ import fr.Indyuce.throwables.manager.ThrowableManager;
 import fr.Indyuce.throwables.manager.ThrownItemManager;
 import fr.Indyuce.throwables.player.PlayerData;
 import fr.Indyuce.throwables.version.ServerVersion;
+import fr.Indyuce.throwables.version.SpigotPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -34,7 +35,7 @@ public class Throwables extends JavaPlugin {
         plugin = this;
 
         // Update checker
-        /* new SpigotPlugin(1111, this);*/
+        new SpigotPlugin(95551, this);
 
         // Metrics
         new Metrics(this);

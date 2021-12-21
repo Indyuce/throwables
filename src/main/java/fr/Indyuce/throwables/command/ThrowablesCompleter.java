@@ -21,14 +21,14 @@ public class ThrowablesCompleter implements TabCompleter {
 
         List<String> list = new ArrayList<>();
 
-        if (args.length == 0) {
+        if (args.length == 1) {
             list.add("reload");
             list.add("give");
             list.add("itemlist");
             return list;
         }
 
-        if (args.length == 1) {
+        if (args.length == 2) {
             if (args[0].equalsIgnoreCase("give")) {
                 for (ThrowableItem item : Throwables.plugin.throwableManager.getThrowables())
                     list.add(item.getId());
@@ -36,7 +36,7 @@ public class ThrowablesCompleter implements TabCompleter {
             }
         }
 
-        if (args.length == 2) {
+        if (args.length == 3) {
             if (args[0].equalsIgnoreCase("give")) {
                 for (Player player : Bukkit.getOnlinePlayers())
                     list.add(player.getName());
@@ -44,7 +44,7 @@ public class ThrowablesCompleter implements TabCompleter {
             }
         }
 
-        if (args.length == 3) {
+        if (args.length == 4) {
             if (args[0].equalsIgnoreCase("give")) {
                 list.add("1");
                 list.add("10");

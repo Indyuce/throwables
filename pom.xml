@@ -25,12 +25,6 @@
     <repositories>
 
         <repository>
-            <id>lumine</id>
-            <url>https://mvn.lumine.io/repository/maven/</url>
-        </repository>
-
-        <!-- Repository used to fetch all Spigot API builds -->
-        <repository>
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
@@ -41,8 +35,8 @@
 
         <dependency>
             <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-1.17</artifactId>
-            <version>dev</version>
+            <artifactId>spigot-api</artifactId>
+            <version>1.18.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         
@@ -50,6 +44,13 @@
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>21.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
