@@ -1,5 +1,58 @@
 
+# Support simple throwing axe
 TEST:
   throwable-type: default_axe
   material: IRON_AXE
   name: '&6Throwing Axe'
+
+# Wiki example
+DRAVEN_AXE:
+
+  # Usual stuff
+  material: IRON_SWORD
+  custom-model-data: 0
+  name: '&6Draven''s Axe'
+  lore:
+    - '&7Right click to throw.'
+    - ''
+    - '&cSpecial Ability'
+    - '&7This axe will bounce back to its'
+    - '&7thrower upon hitting an enemy.'
+
+  throwable-type: default_axe
+
+  # Default stats
+  force: 1.0
+  damage: 9.0
+  cooldown: 3.0
+  cooldown-scope: THROWABLE_TYPE
+  keep-on-throw: false
+  gravity: 1
+
+  # Stats specific to throwable axes
+  bounce-back: true
+  loyalty: false
+
+# Another example
+LOYAL_AXE:
+  throwable-type: default_axe
+  material: IRON_AXE
+  name: '&6Loyal Axe'
+  lore:
+    - '&7Right click to throw.'
+    - ''
+    - '&cLoyalty'
+    - '&7It will bounce back to your'
+    - '&7location when hitting an enemy.'
+  bounce-back: true
+
+# Another example
+LOYAL_SWORD:
+  throwable-type: default_sword
+  material: IRON_SWORD
+  name: '&6Throwable Sword'
+  lore:
+    - '&7Right click to throw.'
+    - ''
+    - '&cLoyalty'
+    - '&7It will boomerang back to you'
