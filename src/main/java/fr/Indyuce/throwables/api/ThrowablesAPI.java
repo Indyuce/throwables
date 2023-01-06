@@ -6,7 +6,7 @@ import fr.Indyuce.throwables.api.event.PlayerThrowItemEvent;
 import fr.Indyuce.throwables.player.PlayerData;
 import fr.Indyuce.throwables.throwable.ThrowableHandler;
 import fr.Indyuce.throwables.throwable.ThrownItem;
-import org.apache.commons.lang.Validate;
+import fr.Indyuce.throwables.util.UtilityMethods;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
@@ -77,7 +77,7 @@ public class ThrowablesAPI {
      * @return Thrown item, or null if it was not thrown
      */
     public ThrownItem throwItem(Player player, ItemStack item, EquipmentSlot hand) {
-        Validate.isTrue(hand == EquipmentSlot.HAND || hand == EquipmentSlot.OFF_HAND, "Slot must be either HAND or OFF_HAND");
+        UtilityMethods.isTrue(hand == EquipmentSlot.HAND || hand == EquipmentSlot.OFF_HAND, "Slot must be either HAND or OFF_HAND");
 
         // Find throwable handler
         ThrowableHandler handler = Objects.requireNonNull(Throwables.plugin.throwableManager.getHandler(item), "Cannot throw this item");

@@ -2,8 +2,7 @@ package fr.Indyuce.throwables.throwable;
 
 import fr.Indyuce.throwables.Throwables;
 import fr.Indyuce.throwables.player.PlayerData;
-import fr.Indyuce.throwables.util.Utils;
-import org.apache.commons.lang.Validate;
+import fr.Indyuce.throwables.util.UtilityMethods;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -123,7 +122,7 @@ public abstract class ThrownItem<T extends ThrowableHandler> {
             return;
         }
 
-        if (Utils.isAir(player.getInventory().getItem(hand))) {
+        if (UtilityMethods.isAir(player.getInventory().getItem(hand))) {
             player.getInventory().setItem(hand, getItem());
             return;
         }
@@ -142,7 +141,7 @@ public abstract class ThrownItem<T extends ThrowableHandler> {
      * removed which can be checked using {@link #isRemoved()}
      */
     public void remove() {
-        Validate.isTrue(!removed, "Item already removed");
+        UtilityMethods.isTrue(!removed, "Item already removed");
 
         removed = true;
         Throwables.plugin.thrownItemManager.unregister(this);
@@ -161,7 +160,7 @@ public abstract class ThrownItem<T extends ThrowableHandler> {
         if (!(getItem().getItemMeta() instanceof Damageable) || getItem().getItemMeta().isUnbreakable())
             return false;
 
-        int loss = Utils.getDurabilityLoss(getItem());
+        int loss = UtilityMethods.getDurabilityLoss(getItem());
 
         PlayerItemDamageEvent called = new PlayerItemDamageEvent(getPlayer(), getItem(), loss);
         Bukkit.getPluginManager().callEvent(called);

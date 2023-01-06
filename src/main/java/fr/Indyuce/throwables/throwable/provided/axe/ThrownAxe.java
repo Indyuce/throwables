@@ -8,7 +8,7 @@ import fr.Indyuce.throwables.player.PlayerData;
 import fr.Indyuce.throwables.throwable.ThrownItem;
 import fr.Indyuce.throwables.util.LoyaltyHandler;
 import fr.Indyuce.throwables.util.MathUtils;
-import fr.Indyuce.throwables.util.Utils;
+import fr.Indyuce.throwables.util.UtilityMethods;
 import org.bukkit.*;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.ArmorStand;
@@ -75,7 +75,7 @@ public class ThrownAxe extends ThrownItem<ThrowableAxeHandler> implements Listen
         g = new Vector(0, -10 * getHandler().getGravityMultiplier(), 0);
 
         // Find location based on the hand used to throw the item
-        loc = getPlayer().getLocation().add(Utils.getHandOffset(getPlayer(), hand));
+        loc = getPlayer().getLocation().add(UtilityMethods.getHandOffset(getPlayer(), hand));
         loc.setPitch(0);
         loc.setYaw(getPlayer().getEyeLocation().getYaw() + 90);
 

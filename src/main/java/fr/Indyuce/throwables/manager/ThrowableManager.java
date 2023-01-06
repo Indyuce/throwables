@@ -7,8 +7,7 @@ import fr.Indyuce.throwables.throwable.ThrowableType;
 import fr.Indyuce.throwables.throwable.provided.axe.ThrowableAxeType;
 import fr.Indyuce.throwables.throwable.provided.sword.ThrowableSwordType;
 import fr.Indyuce.throwables.util.ConfigFile;
-import fr.Indyuce.throwables.util.Utils;
-import org.apache.commons.lang.Validate;
+import fr.Indyuce.throwables.util.UtilityMethods;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -62,7 +61,7 @@ public class ThrowableManager {
             return getDefaultHandler(item.getType());
 
         PersistentDataContainer nbt = item.getItemMeta().getPersistentDataContainer();
-        String tag = nbt.get(Utils.namespacedKey("ThrowableType"), PersistentDataType.STRING);
+        String tag = nbt.get(UtilityMethods.namespacedKey("ThrowableType"), PersistentDataType.STRING);
         if (tag == null || tag.isEmpty())
             return getDefaultHandler(item.getType());
 
@@ -86,21 +85,21 @@ public class ThrowableManager {
     }
 
     public void registerHandler(ThrowableType handler) {
-        Validate.isTrue(typeRegistration, "Please register throwable types before the plugin enables");
-        Validate.isTrue(!mapped.containsKey(handler.getId()), "Found a handler with the same ID ('" + handler.getId() + "')");
+        UtilityMethods.isTrue(typeRegistration, "Please register throwable types before the plugin enables");
+        UtilityMethods.isTrue(!mapped.containsKey(handler.getId()), "Found a handler with the same ID ('" + handler.getId() + "')");
 
         mapped.put(handler.getId(), handler);
     }
 
     public void registerDefaultHandler(Material material, ThrowableHandler handler) {
-        Validate.notNull(material, "Material cannot be null");
-        Validate.notNull(handler, "Handler cannot be null");
+        UtilityMethods.notNull(material, "Material cannot be null");
+        UtilityMethods.notNull(handler, "Handler cannot be null");
 
         defaultHandlers.put(material, handler);
     }
 
     public void registerThrowable(ThrowableItem item) {
-        Validate.isTrue(!throwables.containsKey(item.getId()), "Found a throwable with the same ID ('" + item.getId() + "')");
+        UtilityMethods.isTrue(!throwables.containsKey(item.getId()), "Found a throwable with the same ID ('" + item.getId() + "')");
 
         throwables.put(item.getId(), item);
     }

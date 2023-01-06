@@ -1,6 +1,6 @@
 package fr.Indyuce.throwables.throwable.itemstat;
 
-import org.apache.commons.lang.Validate;
+import fr.Indyuce.throwables.util.UtilityMethods;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -56,7 +56,7 @@ public class ItemStatList {
     }
 
     public void registerStat(ItemStat stat) {
-        Validate.isTrue(!stats.containsKey(stat.getId()), "A stat already exists with the same ID");
+        UtilityMethods.isTrue(!stats.containsKey(stat.getId()), "A stat already exists with the same ID");
 
         stats.put(stat.getId(), stat);
     }

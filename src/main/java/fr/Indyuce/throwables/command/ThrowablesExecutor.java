@@ -2,7 +2,7 @@ package fr.Indyuce.throwables.command;
 
 import fr.Indyuce.throwables.Throwables;
 import fr.Indyuce.throwables.throwable.ThrowableItem;
-import org.apache.commons.lang.Validate;
+import fr.Indyuce.throwables.util.UtilityMethods;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -72,7 +72,7 @@ public class ThrowablesExecutor implements CommandExecutor {
             if (args.length > 3)
                 try {
                     amount = Integer.parseInt(args[3]);
-                    Validate.isTrue(amount > 0);
+                    UtilityMethods.isTrue(amount > 0, "Not a number");
                 } catch (IllegalArgumentException exception) {
                     sender.sendMessage(ChatColor.RED + args[3] + " is not a valid number");
                     return true;

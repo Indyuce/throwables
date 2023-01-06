@@ -1,6 +1,6 @@
 package fr.Indyuce.throwables.player;
 
-import org.apache.commons.lang.Validate;
+import fr.Indyuce.throwables.util.UtilityMethods;
 
 public class CooldownInfo {
     private final long initialCooldown, castTime = System.currentTimeMillis();
@@ -56,14 +56,14 @@ public class CooldownInfo {
      * @param p Percentage of the remaining cooldown to remove
      */
     public void reduceRemainingCooldown(float p) {
-        Validate.isTrue(p >= 0 && p <= 1, "p must be between 0 and 1");
+        UtilityMethods.isTrue(p >= 0 && p <= 1, "p must be between 0 and 1");
 
         double left = getRemaining();
         nextUse -= (long) (left * p);
     }
 
     public void reduceInitialCooldown(float p) {
-        Validate.isTrue(p >= 0 && p <= 1, "p must be between 0 and 1");
+        UtilityMethods.isTrue(p >= 0 && p <= 1, "p must be between 0 and 1");
 
         nextUse -= initialCooldown * p;
     }

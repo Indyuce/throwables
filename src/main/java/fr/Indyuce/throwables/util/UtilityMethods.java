@@ -1,7 +1,6 @@
 package fr.Indyuce.throwables.util;
 
 import fr.Indyuce.throwables.Throwables;
-import org.apache.commons.lang.Validate;
 import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Damageable;
@@ -15,14 +14,14 @@ import org.bukkit.util.Vector;
 import java.util.Random;
 import java.util.function.Consumer;
 
-public class Utils {
+public class UtilityMethods {
     private static final double HAND_ANGLE = Math.PI / 4;
     private static final double HAND_RADIUS = .4;
 
     private static final Random random = new Random();
 
     public static Vector getHandOffset(Player player, EquipmentSlot hand) {
-        Validate.isTrue(hand == EquipmentSlot.HAND || hand == EquipmentSlot.OFF_HAND, "hand must be either HAND or OFF_HAND");
+        UtilityMethods.isTrue(hand == EquipmentSlot.HAND || hand == EquipmentSlot.OFF_HAND, "hand must be either HAND or OFF_HAND");
 
         double a = Math.toRadians(player.getEyeLocation().getYaw());
         double p = hand == EquipmentSlot.HAND ? 1 : -1;
@@ -92,5 +91,35 @@ public class Utils {
 
     public static boolean isAir(ItemStack item) {
         return item == null || item.getType() == Material.AIR;
+    }
+
+    /**
+     * Validate that the argument condition is {@code true}; otherwise
+     * throwing an exception with the specified message. This method is useful when
+     * validating according to an arbitrary boolean expression, such as validating a
+     * primitive number or using your own custom validation expression.
+     *
+     * <pre>Validate.isTrue(i &gt; 0.0, "The value must be greater than zero: &#37;d", i);</pre>
+     *
+     * <p>For performance reasons, the long value is passed as a separate parameter and
+     * appended to the exception message only in the case of an error.</p>
+     *
+     * @param expression the boolean expression to check
+     * @param message    the {@link String#format(String, Object...)} exception message if invalid, not null
+     * @throws IllegalArgumentException if expression is {@code false}
+     */
+    public static void isTrue(final boolean expression, final String message) {
+        if (!expression)
+            throw new IllegalArgumentException(message);
+    }
+
+    /**
+     * @param obj     the object to check
+     * @param message the {@link String#format(String, Object...)} exception message if invalid, not null
+     * @throws IllegalArgumentException if expression is {@code false}
+     */
+    public static void notNull(final Object obj, final String message) {
+        if (obj == null)
+            throw new IllegalArgumentException(message);
     }
 }

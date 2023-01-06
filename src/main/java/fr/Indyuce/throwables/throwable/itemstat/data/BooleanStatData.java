@@ -2,7 +2,7 @@ package fr.Indyuce.throwables.throwable.itemstat.data;
 
 import fr.Indyuce.throwables.throwable.itemstat.ItemStat;
 import fr.Indyuce.throwables.util.Placeholders;
-import fr.Indyuce.throwables.util.Utils;
+import fr.Indyuce.throwables.util.UtilityMethods;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
@@ -26,6 +26,6 @@ public class BooleanStatData extends StatData {
 
     @Override
     public void whenApplied(ItemStack item, ItemMeta meta, Placeholders holders) {
-        meta.getPersistentDataContainer().set(Utils.namespacedKey(getStat().getNBTPath()), PersistentDataType.BYTE, (byte) (value ? 1 : 0));
+        meta.getPersistentDataContainer().set(UtilityMethods.namespacedKey(getStat().getNBTPath()), PersistentDataType.BYTE, (byte) (value ? 1 : 0));
     }
 }

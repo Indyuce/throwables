@@ -1,7 +1,7 @@
 package fr.Indyuce.throwables.player;
 
 import fr.Indyuce.throwables.throwable.ThrowableHandler;
-import fr.Indyuce.throwables.util.Utils;
+import fr.Indyuce.throwables.util.UtilityMethods;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -67,10 +67,10 @@ public class PlayerData {
             return playerCooldowns.isOnCooldown(handler.getType().getId()) ? null : () -> playerCooldowns.applyCooldown(handler.getType().getId(), cooldown);
 
         // Item cooldown
-        long lastUse = item.hasItemMeta() ? item.getItemMeta().getPersistentDataContainer().getOrDefault(Utils.namespacedKey("LastThrow"), PersistentDataType.LONG, 0l) : 0l;
+        long lastUse = item.hasItemMeta() ? item.getItemMeta().getPersistentDataContainer().getOrDefault(UtilityMethods.namespacedKey("LastThrow"), PersistentDataType.LONG, 0l) : 0l;
         return lastUse + cooldown * 1000 > System.currentTimeMillis() ? null : () -> {
             ItemMeta meta = item.getItemMeta();
-            meta.getPersistentDataContainer().set(Utils.namespacedKey("LastThrow"), PersistentDataType.LONG, System.currentTimeMillis());
+            meta.getPersistentDataContainer().set(UtilityMethods.namespacedKey("LastThrow"), PersistentDataType.LONG, System.currentTimeMillis());
             item.setItemMeta(meta);
         };
     }

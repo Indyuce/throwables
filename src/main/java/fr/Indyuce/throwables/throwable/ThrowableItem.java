@@ -2,8 +2,7 @@ package fr.Indyuce.throwables.throwable;
 
 import fr.Indyuce.throwables.throwable.itemstat.data.StatData;
 import fr.Indyuce.throwables.util.Placeholders;
-import fr.Indyuce.throwables.util.Utils;
-import org.apache.commons.lang.Validate;
+import fr.Indyuce.throwables.util.UtilityMethods;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
@@ -33,7 +32,7 @@ public class ThrowableItem {
     private final int modelData;
 
     public ThrowableItem(ThrowableType type, ConfigurationSection config) {
-        Validate.notNull(config, "Config cannot be null");
+        UtilityMethods.notNull(config, "Config cannot be null");
 
         this.type = type;
         id = config.getName();
@@ -60,7 +59,7 @@ public class ThrowableItem {
         this.material = material;
         this.name = name;
         this.lore = lore;
-        Validate.isTrue(modelData >= 0, "Custom model data must be a positive integer");
+        UtilityMethods.isTrue(modelData >= 0, "Custom model data must be a positive integer");
         this.modelData = modelData;
         this.handler = type.newHandler();
     }
@@ -123,7 +122,7 @@ public class ThrowableItem {
             meta.setCustomModelData(modelData);
 
         if (type != null)
-            meta.getPersistentDataContainer().set(Utils.namespacedKey("ThrowableType"), PersistentDataType.STRING, type.getId());
+            meta.getPersistentDataContainer().set(UtilityMethods.namespacedKey("ThrowableType"), PersistentDataType.STRING, type.getId());
 
         item.setItemMeta(meta);
         return item;

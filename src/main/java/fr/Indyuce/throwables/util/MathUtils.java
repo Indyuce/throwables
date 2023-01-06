@@ -1,6 +1,5 @@
 package fr.Indyuce.throwables.util;
 
-import org.apache.commons.lang.Validate;
 import org.bukkit.Location;
 import org.bukkit.util.EulerAngle;
 import org.bukkit.util.Vector;
@@ -28,7 +27,7 @@ public class MathUtils {
      * @return Yaw of location that would have the same direction
      */
     public static double getYawRadians(double x, double z) {
-        Validate.isTrue(x != 0 || z != 0, "x and z cannot be simultaneously zero");
+        UtilityMethods.isTrue(x != 0 || z != 0, "x and z cannot be simultaneously zero");
 
         double theta = Math.atan2(-x, z);
         return ((theta + _2PI) % _2PI) + PI_OVER_2;

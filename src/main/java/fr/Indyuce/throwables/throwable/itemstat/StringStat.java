@@ -1,7 +1,7 @@
 package fr.Indyuce.throwables.throwable.itemstat;
 
 import fr.Indyuce.throwables.throwable.itemstat.data.StringStatData;
-import fr.Indyuce.throwables.util.Utils;
+import fr.Indyuce.throwables.util.UtilityMethods;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
@@ -14,7 +14,7 @@ public class StringStat extends ItemStat<StringStatData> {
 
     @Override
     public StringStatData fromItem(ItemStack item, ItemMeta meta) {
-        String str = meta.getPersistentDataContainer().get(Utils.namespacedKey(getNBTPath()), PersistentDataType.STRING);
+        String str = meta.getPersistentDataContainer().get(UtilityMethods.namespacedKey(getNBTPath()), PersistentDataType.STRING);
         return str == null ? null : new StringStatData(this, str);
     }
 

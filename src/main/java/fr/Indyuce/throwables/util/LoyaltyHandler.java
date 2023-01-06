@@ -56,7 +56,7 @@ public class LoyaltyHandler implements Listener {
         a += (random.nextBoolean() ? 1 : -1) * Math.PI / 2; // Random offset
         dir = new Vector(INITIAL_RADIAL_VELOCITY * Math.cos(a), INITIAL_VERTICAL_VELOCITY, INITIAL_RADIAL_VELOCITY * Math.sin(a));
 
-        Utils.drawVector(loc, dir);
+        UtilityMethods.drawVector(loc, dir);
 
         this.initialDirection = dir;
 
@@ -86,7 +86,7 @@ public class LoyaltyHandler implements Listener {
         }
 
         // Try to give in hand
-        if (!Utils.isAir(player.getInventory().getItem(hand))) {
+        if (!UtilityMethods.isAir(player.getInventory().getItem(hand))) {
             player.getInventory().setItem(hand, dropped);
             return;
         }
